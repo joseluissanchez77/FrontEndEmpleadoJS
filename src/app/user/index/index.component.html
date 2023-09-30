@@ -1,0 +1,70 @@
+<div class="jumbotron">
+    <div class="container">
+
+        <br>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2>Lista de Empleados</h2>
+            </div>
+            <div class="panel-body">
+
+
+                <div class="mt-5 d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="button" class="btn btn-block btn-info" (click)="btnAddEmployee()">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        Agregar
+                    </button>
+
+                </div>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Cargo</th>
+                            <th>Sueldo</th>
+                            <th>Departamento</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="objGetEmpleado.length > 0 else TablaVacia">
+
+                        <tr *ngFor="let item of objGetEmpleado;  index as i" (click)="dataPersonRow(item)">
+
+                            <!-- <td>{{ item.id }}</td> -->
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ item.nombre }}</td>
+                            <td>{{ item.correo }}</td>
+                            <td>{{ item.cargo }}</td>
+                            <td>{{ item.sueldo }}</td>
+                            <td>{{ item.departamento }}</td>
+                            <!-- <td>{{ item.createdAt | date: 'fullDate'}}</td> -->
+
+                            <td>
+                                <button type="button" class="btn btn-success me-1" (click)="btnUpdateEmployee(item)"><i
+                                        class="fas fa-edit"></i>Editar</button>
+                                <button type="button" class="btn btn-danger" (click)="deleteEmployeeRowConfirm(item)"
+                                    title="Eliminar Persona"><i class="far fa-trash-alt"></i>Borrar</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                    <ng-template #TablaVacia>
+                        <tbody>
+                            <tr class="body-empty">
+                                <td colspan="7">No hay datos para mostrar</td>
+                            </tr>
+                        </tbody>
+                    </ng-template>
+                </table>
+            </div>
+        </div>
+
+        <!-- <h1 class="display-3">Hello, world!</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called a
+            jumbotron and three supporting pieces of content. Use it as a starting point to create something more
+            unique.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p> -->
+    </div>
+</div>

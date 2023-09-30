@@ -1,0 +1,87 @@
+<div class="container py-15">
+
+    <legend class="w-auto h6">Editar Empleado</legend>
+
+    <hr>
+    <button type="button" (click)="cancelarEmpleado()" class="btn btn-danger">Atras </button>
+    <hr>
+
+    <form [formGroup]="empleadoUpdateForm">
+
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="exampleInputNombre" class="form-label">Nombre</label>
+                <input formControlName="fcn_nombre" type="text" class="form-control" id="exampleInputNombrePrimer"
+                [ngModel]="empleadoForm.nombre">
+                <div *ngIf="fcn_nombre.invalid && ( fcn_nombre.dirty || fcn_nombre.touched )" class="text-danger">
+                    <div *ngIf="fcn_nombre.errors?.['required']">
+                        El Nombre es requerido.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="exampleInputCargo" class="form-label">Cargo</label>
+                <input formControlName="fcn_cargo" type="text" class="form-control" id="exampleInputCargo"
+                [ngModel]="empleadoForm.cargo">
+                <div *ngIf="fcn_cargo.invalid && ( fcn_cargo.dirty || fcn_cargo.touched )" class="text-danger">
+                    <div *ngIf="fcn_cargo.errors?.['required']">
+                        El Cargo es requerido.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="exampleInputCargo" class="form-label">Departamento</label>
+                <input formControlName="fcn_departamento" type="text" class="form-control" id="exampleInputCargo"
+                [ngModel]="empleadoForm.departamento">
+                <div *ngIf="fcn_departamento.invalid && ( fcn_departamento.dirty || fcn_departamento.touched )"
+                    class="text-danger">
+                    <div *ngIf="fcn_departamento.errors?.['required']">
+                        El Departamento es requerido.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="exampleInputSueldo" class="form-label">Sueldo</label>
+                <input formControlName="fcn_sueldo" class="form-control" type="number" step="any"
+                [ngModel]="empleadoForm.sueldo"
+                    id="exampleInputSueldo">
+                <div *ngIf="fcn_sueldo.invalid && ( fcn_sueldo.dirty || fcn_sueldo.touched )" class="text-danger">
+                    <div *ngIf="fcn_sueldo.errors?.['required']">
+                        El Sueldo es requerido.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="exampleInputCorreo" class="form-label">Correo</label>
+                <input formControlName="fcn_correo" class="form-control" type="email" id="exampleInputCorreo"
+                [ngModel]="empleadoForm.correo">
+                <div *ngIf="fcn_correo.invalid && ( fcn_correo.dirty || fcn_correo.touched )" class="text-danger">
+                    <div *ngIf="fcn_correo.errors?.['required']">
+                        El Correo es requerido.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <div class="row">
+            <div class="col-sm-6">
+                <button type="submit" (click)="editarEmpleado()" class="btn btn-primary me-3">Editar </button>
+                <button type="button" (click)="cancelarEmpleado()" class="btn btn-danger">Cancelar </button>
+            </div>
+        </div>
+    </form>
+</div>
